@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <h2>商品一覧</h2>
+    <p>(全<%= @items.count %>件)</p>
+  </div>
+  <div class="row flex-wrap">
+    <% @items.each do |items| %>
+      <ul class="list-unstyled">
+        <li>
+          <%= link_to public_item_path(items.id) do %>
+            <div>
+              <%= image_tag items.get_image(200,200) %>
+              <p class="text-dark"><%= items.name %></p>
+              <p class="text-dark">￥<%= items.taxin_price.floor %></p>
+            </div>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</div>
